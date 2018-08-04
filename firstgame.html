@@ -35,13 +35,13 @@
 </div>
 
 <script>
-var secret_number = -1;
-var num_guesses = -1;
+var guess = Math.floor(Math.random()* 100) + 1;
+var secret_number = Math.floor(guess);
+var num_guesses = 0;
 var total_score = 0;
 var num_games_played = 0;
 function startGame() {
     document.getElementById("output").innerHTML = "Guess the number between 0-99";
-    secret_number = Math.floor(Math.random() * 100);
     /* window.alert(secret_number); for debugging */
     num_guesses = 0;
 }
@@ -63,7 +63,7 @@ function getUserGuess() {
             num_games_played += 1;
             total_score += num_guesses;
             var average_score = total_score/num_games_played;
-            document.getElementById("output").innerHTML = "Congrats you have guessed the number " + secret_number + " in " + num_guesses + " guesses!\n" + " Your average score in " + num_games_played + " games is " + average_score + ".";      
+            document.getElementById("output").innerHTML = "Congrats you have guessed the number " + secret_number + " in " + num_guesses + " guesses!\n" + " Your average score in " + num_games_played + " game is " + average_score + ".";      
         }
         document.getElementById("numberGuess").value = " ";
     } 
